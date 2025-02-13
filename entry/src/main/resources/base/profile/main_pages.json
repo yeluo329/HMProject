@@ -2,6 +2,8 @@
   "src": [
     "pages/Index",
     "pages/MainPage",
-    "pages/LoadingPage"
+    "pages/LoadingPage",
+    "study/t1/ComponentCommonStudy",
+    "pages/WelcomePage"
   ]
 }

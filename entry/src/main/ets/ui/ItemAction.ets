@@ -1,5 +1,5 @@
 @Component
-export struct ItemAction {
+export  struct ItemAction {
   @State isOk: boolean = false
   value?: string
 
