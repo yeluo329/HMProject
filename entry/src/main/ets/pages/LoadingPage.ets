@@ -46,5 +46,7 @@ struct LoadingItem {
     .height(120)
     .width('100%')
     .justifyContent(FlexAlign.SpaceBetween)
+
+
   }
 }
