@@ -238,6 +238,9 @@ struct WelcomePage {
           } else {
             this.result = tempResult
           }
+
+
+
         })
       }
 
