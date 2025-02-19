@@ -1,50 +1,61 @@
 import { router } from '@kit.ArkUI';
-import { it } from '@ohos/hypium';
-import { ItemAction } from '../ui/ItemAction';
-import { JSON } from '@kit.ArkTS';
+import { preferences, ValueType } from '@kit.ArkData';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 const params = router.getParams() as Record<string, string>
 
 @Entry
 @Component
 struct MainPage {
-  @State tasks: string[] = []
+  dataPreferences: preferences.Preferences | null = null
+  message: string = ''
 
   aboutToAppear(): void {
-    this.tasks = ['打架', '睡觉', '健身', '吃饭']
+    let options: preferences.Options = { name: 'myStore' }
+    this.dataPreferences = preferences.getPreferencesSync(getContext(this), options)
+    // this.dataPreferences.putSync('startup', '雷晶湛');
+    this.message = this.dataPreferences.getSync('startup', 'default') as string;
+
+    preferences.deletePreferences(getContext(this), options, (err: BusinessError) => {
+      if (err) {
+        console.error(`Failed to delete preferences. Code:${err.code}, message:${err.message}`);
+        return;
+      }
+      console.info('Succeeded in deleting preferences.');
+    })
+    // this.dataPreferences.on('change', (key: string) => {
+    //   console.info('The key ' + key + ' changed.');
+    // })
+    //
+    // this.dataPreferences.put('startup', 'manual', (err: BusinessError) => {
+    //   if (err) {
+    //     console.error(`Failed to put the value of 'startup'. Code:${err.code},message:${err.message}`);
+    //     return;
+    //   }
+    //
+    //   console.info("Succeeded in putting the value of 'startup'.");
+    //   if (this.dataPreferences !== null) {
+    //     this.dataPreferences.flush((err: BusinessError) => {
+    //       if (err) {
+    //         console.error(`Failed to flush. Code:${err.code}, message:${err.message}`);
+    //         return;
+    //       }
+    //       console.info('Succeeded in flushing.');
+    //     })
+    //   }
+    // })
+
   }
 
   build() {
     Row() {
       Column() {
-        Text(`欢迎${params?.['userInfo']}`)
-          .fontSize(25)
-          .fontWeight(FontWeight.Bold)
-          .onClick(() => {
-            this.tasks[4] = '哈哈'
-          })
-
-        Divider()
-
-        //这个可以显示
-        // ForEach(this.tasks, (item: string) => {
-        //   ItemAction({ value: item })
-        // }, (item: string, index: number) => index + '_' + JSON.stringify(item))
+        Text(this.message)
+          .fontSize(40)
 
 
-        ForEach(this.tasks, (item: string) => {
-          ItemAction({ value: item })
-        }, (item: string, index: number) => {
-          console.log('ljz:' + JSON.stringify(item) + 'index:' + index)
-          return JSON.stringify(item) + index
-        })
-      }
-      .width('100%')
+      }.width('100%')
     }
     .height('100%')
-    .onClick(() => {
-      router.back()
-    })
-
   }
 }
