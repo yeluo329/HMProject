@@ -4,6 +4,7 @@
     "pages/MainPage",
     "pages/LoadingPage",
     "study/t1/ComponentCommonStudy",
-    "pages/WelcomePage"
+    "pages/WelcomePage",
+    "pages/LoginPage"
   ]
 }
