@@ -97,7 +97,7 @@
   "ohos-project": {
     "SELECT_PRODUCT_NAME": "default",
     "MODULE_BUILD_DIR": "/Users/heihei/hm_project/TestProject/build",
-    "BUNDLE_NAME": "com.example.testproject",
+    "BUNDLE_NAME": "com.ljz.testproject",
     "BUILD_PATH": {
       "OUTPUT_PATH": "/Users/heihei/hm_project/TestProject/build/outputs/default"
     },

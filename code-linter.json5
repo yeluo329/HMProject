@@ -1,7 +1,9 @@
 {
+  //配置待检查的文件名单
   "files": [
     "**/*.ets"
   ],
+  //配置无需检查的文件目录，其指定的目录或文件需使用相对路径格式
   "ignore": [
     "**/src/ohosTest/**/*",
     "**/src/test/**/*",
@@ -13,8 +15,23 @@
   ],
   "ruleSet": [
     "plugin:@performance/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@previewer/recommended"
   ],
   "rules": {
+    "@typescript-eslint/naming-convention": [
+      'error',
+      {
+        "selector": "class",
+        "format": [
+          "PascalCase"
+        ],
+        "custom": {
+          // regex属性必选，配置具体的正则
+          "regex": "^[a-zA-Z]+$",
+          "match": true
+        }
+      }
+    ]
   }
 }

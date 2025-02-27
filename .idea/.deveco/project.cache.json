@@ -1,6 +1,6 @@
 {
 	"BuildOptions":{
-		"BUNDLE_NAME":"com.example.testproject",
+		"BUNDLE_NAME":"com.ljz.testproject",
 		"SELECT_BUILD_MODE":"",
 		"BUILD_PATH":{
 			"OUTPUT_PATH":"/Users/heihei/hm_project/TestProject/build/outputs/default"

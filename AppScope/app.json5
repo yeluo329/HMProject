@@ -1,10 +1,19 @@
 {
   "app": {
-    "bundleName": "com.example.testproject",
+    "bundleName": "com.ljz.testproject",
+    //应用开发厂商描述
     "vendor": "example",
-    "versionCode": 1000000,
-    "versionName": "1.0.0",
+    //表示应用版本号
+    "versionCode": 1000001,
+    //用户展示的版本号
+    "versionName": "1.0.1",
+    //图标
     "icon": "$media:app_icon",
-    "label": "$string:app_name"
+    //应用名
+    "label": "$string:app_name",
+    "debug": true,
+    "car": {
+      "minAPIVersion": 8
+    }
   }
 }
