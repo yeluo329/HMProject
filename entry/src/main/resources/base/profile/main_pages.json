@@ -1,6 +1,8 @@
 {
   "src": [
     "pages/MainPage",
-    "study/t1/ComponentCommonStudy"
+    "study/t1/ComponentCommonStudy",
+    "pages/WebPage",
+    "pages/TestWebPage"
   ]
 }
